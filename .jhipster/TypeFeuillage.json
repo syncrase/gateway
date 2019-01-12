@@ -1,0 +1,28 @@
+{
+    "name": "TypeFeuillage",
+    "fields": [
+        {
+            "fieldName": "typeFeuillage",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "plante",
+            "otherEntityName": "plante",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "typeFeuillage"
+        }
+    ],
+    "changelogDate": "20190110200018",
+    "javadoc": "TypeFeuillage enumeration.\n@author Pierre TAQUET",
+    "entityTableName": "type_feuillage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+    "name": "VitesseCroissance",
+    "fields": [
+        {
+            "fieldName": "vitesseCroissance",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "plante",
+            "otherEntityName": "plante",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "vitesseCroissance"
+        }
+    ],
+    "changelogDate": "20190110200014",
+    "javadoc": "VitesseCroissance enumeration.\n@author Pierre TAQUET",
+    "entityTableName": "vitesse_croissance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

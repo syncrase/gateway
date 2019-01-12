@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="floraison">
+            <h2><span>Floraison</span> {{floraison.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Plante</span></dt>
+                <dd>
+                    <div *ngIf="floraison.plante">
+                        <a [routerLink]="['/plante', floraison.plante?.id, 'view']">{{floraison.plante?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Mois</span></dt>
+                <dd>
+                    <div *ngIf="floraison.mois">
+                        <a [routerLink]="['/mois', floraison.mois?.id, 'view']">{{floraison.mois?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/floraison', floraison.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

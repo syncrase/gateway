@@ -1,0 +1,35 @@
+{
+    "name": "Mois",
+    "fields": [
+        {
+            "fieldName": "mois",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "recolte",
+            "otherEntityName": "recolte",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "mois"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "floraison",
+            "otherEntityName": "floraison",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "mois"
+        }
+    ],
+    "changelogDate": "20190110200020",
+    "javadoc": "Mois enumeration.\nTODO contraindre nombre lignes\n@author Pierre TAQUET",
+    "entityTableName": "mois",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

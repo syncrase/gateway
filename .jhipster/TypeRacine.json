@@ -1,0 +1,28 @@
+{
+    "name": "TypeRacine",
+    "fields": [
+        {
+            "fieldName": "typeRacine",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "plante",
+            "otherEntityName": "plante",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "typeRacine"
+        }
+    ],
+    "changelogDate": "20190110200019",
+    "javadoc": "TypeRacine enumeration.\n@author Pierre TAQUET",
+    "entityTableName": "type_racine",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,108 @@
+<div>
+    <h2 id="page-heading">
+        <span>Plantes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-plante" [routerLink]="['/plante/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Plante
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="plantes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Ph Min</span></th>
+            <th><span>Ph Max</span></th>
+            <th><span>Temp Min</span></th>
+            <th><span>Temp Max</span></th>
+            <th><span>Classification Cronquist</span></th>
+            <th><span>Strate</span></th>
+            <th><span>Vitesse Croissance</span></th>
+            <th><span>Ensoleillement</span></th>
+            <th><span>Richesse Sol</span></th>
+            <th><span>Type Terre</span></th>
+            <th><span>Type Feuillage</span></th>
+            <th><span>Type Racine</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let plante of plantes ;trackBy: trackId">
+                <td><a [routerLink]="['/plante', plante.id, 'view' ]">{{plante.id}}</a></td>
+                <td>{{plante.phMin}}</td>
+                <td>{{plante.phMax}}</td>
+                <td>{{plante.tempMin}}</td>
+                <td>{{plante.tempMax}}</td>
+                <td>
+                    <div *ngIf="plante.classificationCronquist">
+                        <a [routerLink]="['../classification-cronquist', plante.classificationCronquist?.id, 'view' ]" >{{plante.classificationCronquist?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plante.strate">
+                        <a [routerLink]="['../strate', plante.strate?.id, 'view' ]" >{{plante.strate?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plante.vitesseCroissance">
+                        <a [routerLink]="['../vitesse-croissance', plante.vitesseCroissance?.id, 'view' ]" >{{plante.vitesseCroissance?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plante.ensoleillement">
+                        <a [routerLink]="['../ensoleillement', plante.ensoleillement?.id, 'view' ]" >{{plante.ensoleillement?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plante.richesseSol">
+                        <a [routerLink]="['../richesse-sol', plante.richesseSol?.id, 'view' ]" >{{plante.richesseSol?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plante.typeTerre">
+                        <a [routerLink]="['../type-terre', plante.typeTerre?.id, 'view' ]" >{{plante.typeTerre?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plante.typeFeuillage">
+                        <a [routerLink]="['../type-feuillage', plante.typeFeuillage?.id, 'view' ]" >{{plante.typeFeuillage?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="plante.typeRacine">
+                        <a [routerLink]="['../type-racine', plante.typeRacine?.id, 'view' ]" >{{plante.typeRacine?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/plante', plante.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/plante', plante.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'plante/'+ plante.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

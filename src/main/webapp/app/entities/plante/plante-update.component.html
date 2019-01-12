@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-plante-heading">Create or edit a Plante</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!plante.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="plante.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_phMin">Ph Min</label>
+                    <input type="text" class="form-control" name="phMin" id="field_phMin"
+                        [(ngModel)]="plante.phMin" pattern="^\d{0,1}(,\d){0,1}$"/>
+                    <div [hidden]="!(editForm.controls.phMin?.dirty && editForm.controls.phMin?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.phMin?.errors?.pattern">
+                            This field should follow pattern for "Ph Min".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_phMax">Ph Max</label>
+                    <input type="text" class="form-control" name="phMax" id="field_phMax"
+                        [(ngModel)]="plante.phMax" pattern="^\d{0,1}(,\d){0,1}$"/>
+                    <div [hidden]="!(editForm.controls.phMax?.dirty && editForm.controls.phMax?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.phMax?.errors?.pattern">
+                            This field should follow pattern for "Ph Max".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tempMin">Temp Min</label>
+                    <input type="number" class="form-control" name="tempMin" id="field_tempMin"
+                        [(ngModel)]="plante.tempMin" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tempMax">Temp Max</label>
+                    <input type="number" class="form-control" name="tempMax" id="field_tempMax"
+                        [(ngModel)]="plante.tempMax" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_classificationCronquist">Classification Cronquist</label>
+                    <select class="form-control" id="field_classificationCronquist" name="classificationCronquist" [(ngModel)]="plante.classificationCronquist" required>
+                        <option *ngIf="!editForm.value.classificationCronquist" [ngValue]="null" selected></option>
+                        <option [ngValue]="classificationCronquistOption.id === plante.classificationCronquist?.id ? plante.classificationCronquist : classificationCronquistOption" *ngFor="let classificationCronquistOption of classificationcronquists; trackBy: trackClassificationCronquistById">{{classificationCronquistOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.classificationCronquist?.dirty && editForm.controls.classificationCronquist?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.classificationCronquist?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_strate">Strate</label>
+                    <select class="form-control" id="field_strate" name="strate" [(ngModel)]="plante.strate">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="strateOption.id === plante.strate?.id ? plante.strate : strateOption" *ngFor="let strateOption of strates; trackBy: trackStrateById">{{strateOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vitesseCroissance">Vitesse Croissance</label>
+                    <select class="form-control" id="field_vitesseCroissance" name="vitesseCroissance" [(ngModel)]="plante.vitesseCroissance">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vitesseCroissanceOption.id === plante.vitesseCroissance?.id ? plante.vitesseCroissance : vitesseCroissanceOption" *ngFor="let vitesseCroissanceOption of vitessecroissances; trackBy: trackVitesseCroissanceById">{{vitesseCroissanceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ensoleillement">Ensoleillement</label>
+                    <select class="form-control" id="field_ensoleillement" name="ensoleillement" [(ngModel)]="plante.ensoleillement">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ensoleillementOption.id === plante.ensoleillement?.id ? plante.ensoleillement : ensoleillementOption" *ngFor="let ensoleillementOption of ensoleillements; trackBy: trackEnsoleillementById">{{ensoleillementOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_richesseSol">Richesse Sol</label>
+                    <select class="form-control" id="field_richesseSol" name="richesseSol" [(ngModel)]="plante.richesseSol">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="richesseSolOption.id === plante.richesseSol?.id ? plante.richesseSol : richesseSolOption" *ngFor="let richesseSolOption of richessesols; trackBy: trackRichesseSolById">{{richesseSolOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typeTerre">Type Terre</label>
+                    <select class="form-control" id="field_typeTerre" name="typeTerre" [(ngModel)]="plante.typeTerre">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeTerreOption.id === plante.typeTerre?.id ? plante.typeTerre : typeTerreOption" *ngFor="let typeTerreOption of typeterres; trackBy: trackTypeTerreById">{{typeTerreOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typeFeuillage">Type Feuillage</label>
+                    <select class="form-control" id="field_typeFeuillage" name="typeFeuillage" [(ngModel)]="plante.typeFeuillage">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeFeuillageOption.id === plante.typeFeuillage?.id ? plante.typeFeuillage : typeFeuillageOption" *ngFor="let typeFeuillageOption of typefeuillages; trackBy: trackTypeFeuillageById">{{typeFeuillageOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typeRacine">Type Racine</label>
+                    <select class="form-control" id="field_typeRacine" name="typeRacine" [(ngModel)]="plante.typeRacine">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeRacineOption.id === plante.typeRacine?.id ? plante.typeRacine : typeRacineOption" *ngFor="let typeRacineOption of typeracines; trackBy: trackTypeRacineById">{{typeRacineOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

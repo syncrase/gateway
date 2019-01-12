@@ -1,0 +1,28 @@
+{
+    "name": "Strate",
+    "fields": [
+        {
+            "fieldName": "strate",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "plante",
+            "otherEntityName": "plante",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "strate"
+        }
+    ],
+    "changelogDate": "20190110200013",
+    "javadoc": "Strate enumeration.\n@author Pierre TAQUET",
+    "entityTableName": "strate",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

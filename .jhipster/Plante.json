@@ -1,0 +1,120 @@
+{
+    "name": "Plante",
+    "fields": [
+        {
+            "fieldName": "phMin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^\\d{0,1}(,\\d){0,1}$"
+        },
+        {
+            "fieldName": "phMax",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^\\d{0,1}(,\\d){0,1}$"
+        },
+        {
+            "fieldName": "tempMin",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tempMax",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "classificationCronquist",
+            "otherEntityName": "classificationCronquist",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "strate",
+            "otherEntityName": "strate",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "vitesseCroissance",
+            "otherEntityName": "vitesseCroissance",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ensoleillement",
+            "otherEntityName": "ensoleillement",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "richesseSol",
+            "otherEntityName": "richesseSol",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "typeTerre",
+            "otherEntityName": "typeTerre",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "typeFeuillage",
+            "otherEntityName": "typeFeuillage",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "typeRacine",
+            "otherEntityName": "typeRacine",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "recolte",
+            "otherEntityName": "recolte",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "plante"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "floraison",
+            "otherEntityName": "floraison",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "plante"
+        }
+    ],
+    "changelogDate": "20190110200004",
+    "javadoc": "@author Pierre TAQUET",
+    "entityTableName": "plante",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+    "name": "Ensoleillement",
+    "fields": [
+        {
+            "fieldName": "ensoleillement",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "plante",
+            "otherEntityName": "plante",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "ensoleillement"
+        }
+    ],
+    "changelogDate": "20190110200015",
+    "javadoc": "Ensoleillement enumeration.\n@author Pierre TAQUET",
+    "entityTableName": "ensoleillement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

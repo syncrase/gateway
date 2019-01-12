@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="plante">
+            <h2><span>Plante</span> {{plante.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ph Min</span></dt>
+                <dd>
+                    <span>{{plante.phMin}}</span>
+                </dd>
+                <dt><span>Ph Max</span></dt>
+                <dd>
+                    <span>{{plante.phMax}}</span>
+                </dd>
+                <dt><span>Temp Min</span></dt>
+                <dd>
+                    <span>{{plante.tempMin}}</span>
+                </dd>
+                <dt><span>Temp Max</span></dt>
+                <dd>
+                    <span>{{plante.tempMax}}</span>
+                </dd>
+                <dt><span>Classification Cronquist</span></dt>
+                <dd>
+                    <div *ngIf="plante.classificationCronquist">
+                        <a [routerLink]="['/classification-cronquist', plante.classificationCronquist?.id, 'view']">{{plante.classificationCronquist?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Strate</span></dt>
+                <dd>
+                    <div *ngIf="plante.strate">
+                        <a [routerLink]="['/strate', plante.strate?.id, 'view']">{{plante.strate?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Vitesse Croissance</span></dt>
+                <dd>
+                    <div *ngIf="plante.vitesseCroissance">
+                        <a [routerLink]="['/vitesse-croissance', plante.vitesseCroissance?.id, 'view']">{{plante.vitesseCroissance?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Ensoleillement</span></dt>
+                <dd>
+                    <div *ngIf="plante.ensoleillement">
+                        <a [routerLink]="['/ensoleillement', plante.ensoleillement?.id, 'view']">{{plante.ensoleillement?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Richesse Sol</span></dt>
+                <dd>
+                    <div *ngIf="plante.richesseSol">
+                        <a [routerLink]="['/richesse-sol', plante.richesseSol?.id, 'view']">{{plante.richesseSol?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Type Terre</span></dt>
+                <dd>
+                    <div *ngIf="plante.typeTerre">
+                        <a [routerLink]="['/type-terre', plante.typeTerre?.id, 'view']">{{plante.typeTerre?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Type Feuillage</span></dt>
+                <dd>
+                    <div *ngIf="plante.typeFeuillage">
+                        <a [routerLink]="['/type-feuillage', plante.typeFeuillage?.id, 'view']">{{plante.typeFeuillage?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Type Racine</span></dt>
+                <dd>
+                    <div *ngIf="plante.typeRacine">
+                        <a [routerLink]="['/type-racine', plante.typeRacine?.id, 'view']">{{plante.typeRacine?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/plante', plante.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
